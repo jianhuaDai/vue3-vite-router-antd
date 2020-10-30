@@ -28,18 +28,18 @@ axios.interceptors.response.use(response => {
                 Message.error('身份过期，请重新登录');
                 break;
             default:
-                Message.error(response.data.msg);
+                data = response.data
                 break;
         }
     }
     return data;
 }, error => {
     Message.error('网络崩溃了！');
-    return Promise.reject(error.response.data);
+    return Promise.reject(error);
 });
 
 const http = ({
-    url = '/', // DEFAULT_URL
+    url = '../', // DEFAULT_URL
     method = 'get', // DEFAULT_METHOD
     ...rest // REST_CONFIGS { data, headers, ... }  [OPTIONAL]
 }) => axios({

@@ -24,6 +24,11 @@ const MENUS = [
                 id: 'grid',
                 path: ''
             },
+            {
+                name: '表格',
+                id: 'table',
+                path: ''
+            }
         ]
     }
 ]

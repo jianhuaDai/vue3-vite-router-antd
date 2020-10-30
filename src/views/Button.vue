@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-		Button
+    Button
   </div>
 </template>
 
@@ -14,10 +14,8 @@ import {
   onMounted,
   computed,
 } from "vue";
-import apis from '../api/index.js';
 export default {
   setup() {
-    console.log(apis.getList(), 'dddddddddd');
     return {
     };
   },

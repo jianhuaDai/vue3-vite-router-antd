@@ -2,7 +2,7 @@ import http from '../http/interceptor.js';
 const apis = {
     getList() {
         return http({
-            url: '',
+            url: '../mock/index.json',
             method: 'get'
         })
     }
