@@ -6,16 +6,13 @@ const router = createRouter({
     history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
     routes: [
         {
-            path: '/',
-            name: '/',
-            redirect: {
-                name: 'home'
-            },
+            path: '/home',
+            name: 'home',
             component: () => import('../layout/Layout.vue'),
             children: [
                 {
-                    path: 'home',
-                    name: 'home',
+                    path: 'home2',
+                    name: 'home2',
                     component: () => import('../views/Home.vue')
                 }
             ]

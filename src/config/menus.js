@@ -1,7 +1,7 @@
 const MENUS = [
     {
         name: '后台首页',
-        id: 'home',
+        id: 'home2',
         path: '/'
     },
     {
