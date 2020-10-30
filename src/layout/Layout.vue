@@ -41,7 +41,7 @@
               padding-left: 20px;
             "
           >
-            <a-breadcrumb-item>{{ breadCrumbName }}</a-breadcrumb-item>
+            <a-breadcrumb-item v-for="(item, index) in breadCrumbName" :key="index">{{ item }}</a-breadcrumb-item>
           </a-breadcrumb>
         </a-layout-header>
         <a-layout-content
@@ -78,23 +78,25 @@ export default {
     const menus = ref(MENUS);
     const selectedKeys = ref([MENUS[0].id]);
 		const openKeys = ref([MENUS[0].id]);
-		const breadCrumbName = ref('');
+		const breadCrumbName = ref([]);
     const router = useRouter();
     const navigater = (name) => router.push({ name });
     watch(
       () => selectedKeys.value,
       (count, prevCount) => {
-				console.log(count[0], 'count[0]');
+        console.log(count[0], 'count[0]');
+        breadCrumbName.value = [];
         try {
           menus.value.forEach((item) => {
             if (item.id === count[0]) {
-              breadCrumbName.value = item.name;
+              breadCrumbName.value.push(item.name);
               throw Error;
             }
             if (item.children && item.children.length > 0) {
+              breadCrumbName.value.push(item.name)
               item.children.forEach((child) => {
                 if (child.id === count[0]) {
-                  breadCrumbName.value = child.name;
+                  breadCrumbName.value.push(child.name);
                   throw Error;
                 }
               });
