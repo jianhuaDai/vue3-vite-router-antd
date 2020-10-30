@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Antd from 'ant-design-vue';
+console.log(axios, 'axios');
 var Message = Antd.message;
 // axios 配置
 axios.defaults.timeout = 15000; //请求超时
@@ -46,5 +47,4 @@ const http = ({
     method,
     ...rest
 });
-
 export default http;
